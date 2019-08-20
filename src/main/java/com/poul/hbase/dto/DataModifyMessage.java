@@ -7,6 +7,7 @@ import java.io.Serializable;
 
 /**
  * 数据修改消息
+ *
  * @author 杨霄鹏
  * @since 2019/7/22
  */

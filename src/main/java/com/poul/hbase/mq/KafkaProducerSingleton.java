@@ -16,7 +16,7 @@ public class KafkaProducerSingleton {
 
     private static final Logger logger = LoggerFactory.getLogger(KafkaProducerSingleton.class);
 
-    private Producer<String,String> producer;
+    private Producer<String, String> producer;
 
     private String defaultTopic;
 
@@ -29,8 +29,6 @@ public class KafkaProducerSingleton {
     void setDefaultTopic(String defaultTopic) {
         this.defaultTopic = defaultTopic;
     }
-
-
 
 
     public static KafkaProducerSingleton getInstance() {
@@ -49,13 +47,14 @@ public class KafkaProducerSingleton {
 
     private static void init() {
         instance = new KafkaProducerSingleton();
-        instance.setProducer(new KafkaProducer<String,String>(ApplicationConfig.KafkaProperties));
+        instance.setProducer(new KafkaProducer<String, String>(ApplicationConfig.KafkaProperties));
         // 读取应用配置
         instance.setDefaultTopic(ApplicationConfig.ApplicationProperties.getProperty("kafka.topic"));
     }
 
     /**
      * 发送消息
+     *
      * @param message
      */
     public void sendMessage(String message) {

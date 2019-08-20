@@ -27,7 +27,7 @@ public class ApplicationConfig {
         }
 
         currentEnvironment = environment;
-        logger.info("开始加载配置，当前环境：{}",currentEnvironment.name().toLowerCase());
+        logger.info("开始加载配置，当前环境：{}", currentEnvironment.name().toLowerCase());
 
         InputStream resourceAsStream = ApplicationConfig.class.getResourceAsStream("/kafka-" + currentEnvironment.name().toLowerCase() + ".properties");
         Properties properties = new Properties();
@@ -36,10 +36,10 @@ public class ApplicationConfig {
             KafkaProperties = properties;
             resourceAsStream.close();
         } catch (IOException e) {
-            logger.error("读取kafka的配置文件错误，当前环境： {}",currentEnvironment.name().toLowerCase(),e);
+            logger.error("读取kafka的配置文件错误，当前环境： {}", currentEnvironment.name().toLowerCase(), e);
         }
 
-        logger.info("kafka配置加载完毕：{}",KafkaProperties.toString());
+        logger.info("kafka配置加载完毕：{}", KafkaProperties.toString());
 
         resourceAsStream = ApplicationConfig.class.getResourceAsStream("/application-" + currentEnvironment.name().toLowerCase() + ".properties");
         Properties appProperties = new Properties();
@@ -48,10 +48,10 @@ public class ApplicationConfig {
             ApplicationProperties = appProperties;
             resourceAsStream.close();
         } catch (Exception e) {
-            logger.error("读取应用的配置文件错误，当前环境： {}",currentEnvironment.name().toLowerCase(),e);
+            logger.error("读取应用的配置文件错误，当前环境： {}", currentEnvironment.name().toLowerCase(), e);
         }
 
-        logger.info("应用配置加载完毕：{}",ApplicationProperties.toString());
+        logger.info("应用配置加载完毕：{}", ApplicationProperties.toString());
     }
 
 
