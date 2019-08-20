@@ -51,7 +51,7 @@ public class HbaseDataWriteObserver implements RegionObserver, RegionCoprocessor
         Configuration configuration = env.getConfiguration();
         String copEnv = configuration.get("copEnv");
         if (StringUtils.isBlank(copEnv)) {
-            copEnv = "DEV";
+            copEnv = Environment.DEV.name();
         }
 
         Environment environment = Environment.valueOf(copEnv.toUpperCase());
