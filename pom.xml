@@ -17,7 +17,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <hbase.version>2.2.0</hbase.version>
 
-        <kafka.version>2.0.1</kafka.version>
+        <kafka.version>2.6.3</kafka.version>
 
     </properties>
 
